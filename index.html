@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appxcelerate Technologies - Innovative IT Solutions</title>
+    <title>Appxcelerate Technologies - IT Solutions & Staffing in Texas</title>
+    <meta name="description" content="Innovative IT solutions, software development, and staffing services in Texas. Contact Appxcelerate Technologies for business growth.">
+    <meta name="keywords" content="IT solutions Texas, software development, IT consulting, staffing services, mobile app development, AI chatbot development">
+    <meta name="robots" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.appxcelerate-tech.com/images/favicon.png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <style>
         * {
             margin: 0;
@@ -229,6 +240,23 @@
             margin-bottom: 0.5rem;
         }
 
+        .apply-button {
+            background: #00b4d8;
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .apply-button:hover {
+            background: #0077b6;
+        }
+
         /* Contact Section */
         .contact {
             background: #003087;
@@ -270,6 +298,72 @@
 
         .contact button:hover {
             background: #0077b6;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            color: #003087;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-content input,
+        .modal-content input[type="file"] {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .modal-content button {
+            background: #00b4d8;
+            color: #fff;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #0077b6;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
         }
 
         /* Footer */
@@ -325,6 +419,10 @@
                 position: static;
                 margin-top: 1rem;
             }
+
+            .modal-content {
+                width: 95%;
+            }
         }
     </style>
 </head>
@@ -333,7 +431,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo.png" alt="Appxcelerate Technologies Logo">
+                <img src="https://www.appxcelerate-tech.com/images/logo.png" alt="Appxcelerate Technologies Logo">
                 Appxcelerate Technologies
             </div>
             <ul class="nav-links">
@@ -351,38 +449,38 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Accelerate Your Business with Appxcelerate Technologies</h1>
-            <p>Delivering innovative IT solutions and staffing services to drive growth and success worldwide.</p>
+            <p>Delivering innovative <a href="#services">IT solutions</a> and staffing services in Texas to drive growth and success worldwide.</p>
             <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <h2>Our Services</h2>
+        <h2>Our IT Solutions & Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <h3>Software Development</h3>
-                <p>Custom software solutions tailored to your business needs, built with cutting-edge technologies like Java, Python, React, Node, LLM's </p>
+                <h3>Custom Software Development</h3>
+                <p>Custom software solutions tailored to your business needs, built with cutting-edge technologies like Java, Python, React, Node, and LLMs. <a href="#contact">Contact us</a> to learn more.</p>
             </div>
             <div class="service-item">
                 <h3>IT Consulting</h3>
-                <p>Strategic guidance to optimize your IT infrastructure and drive digital transformation.</p>
+                <p>Strategic <a href="#about">IT consulting in Texas</a> to optimize your infrastructure and drive digital transformation.</p>
             </div>
             <div class="service-item">
                 <h3>Staffing Services</h3>
-                <p>Connecting top-tier talent with leading companies to build high-performing teams.</p>
+                <p>Connecting top-tier talent with leading companies to build high-performing teams. <a href="#careers">Explore opportunities</a>.</p>
             </div>
             <div class="service-item">
                 <h3>Mobile App Development</h3>
                 <p>Innovative iOS and Android applications to enhance user engagement and business growth.</p>
             </div>
             <div class="service-item">
-                <h3>Chatbot Development</h3>
+                <h3>AI Chatbot Development</h3>
                 <p>Building customized AI chatbots for customer support, sales automation, and interactive user experiences.</p>
             </div>
             <div class="service-item">
                 <h3>AI & Language Model Solutions</h3>
-                <p>Empowering Your Business with Intelligent Automation and Advanced AI-Driven Insights.</p>
+                <p>Empowering your business with intelligent automation and advanced AI-driven insights.</p>
             </div>
         </div>
     </section>
@@ -390,13 +488,13 @@
     <!-- About Section -->
     <section id="about" class="about">
         <h2>About Appxcelerate Technologies</h2>
-        <p>Appxcelerate Technologies is a global leader in providing end-to-end IT solutions, including software development, IT consulting, and staffing services. Based in Texas, we serve mid-market enterprises and Fortune 5000 companies, delivering innovative solutions that drive business transformation. Our mission is to empower businesses with technology that enhances efficiency, productivity, and profitability, backed by our commitment to excellence and client satisfaction.</p>
+        <p>Appxcelerate Technologies is a Texas-based leader in providing end-to-end <a href="#services">IT solutions</a>, including custom software development, IT consulting, and staffing services. We serve mid-market enterprises and Fortune 5000 companies, delivering innovative solutions that drive business transformation. Our mission is to empower businesses with technology that enhances efficiency, productivity, and profitability, backed by our commitment to excellence and client satisfaction. <a href="#contact">Contact us</a> to accelerate your growth.</p>
     </section>
 
     <!-- Careers Section -->
     <section id="careers" class="careers">
         <h2>Join Our Team</h2>
-        <p>At Appxcelerate Technologies, we believe in fostering a culture of innovation and collaboration. We’re always looking for talented individuals to join our team. Send your resume to <a href="mailto:admin@appxcelerate.com">admin@appxcelerate.com</a> to explore exciting opportunities.</p>
+        <p>At Appxcelerate Technologies, we foster a culture of innovation and collaboration. We’re always looking for talented individuals to join our Texas-based team. Send your resume to <a href="mailto:admin@appxcelerate-tech.com">admin@appxcelerate-tech.com</a> to explore exciting opportunities in <a href="#services">software development and IT consulting</a>.</p>
         <div class="dropdown">
             <button class="dropdown-toggle">View Open Positions</button>
             <div class="dropdown-content">
@@ -404,15 +502,16 @@
                     <h3>Software Engineer - Mobile</h3>
                     <p><strong>Experience in Technologies:</strong> Java, Kotlin, Python</p>
                     <p><strong>Salary:</strong> Competitive salary with benefits</p>
+                    <button class="apply-button" data-job="Software Engineer - Mobile">Apply Now</button>
                 </div>
                 <div class="job-listing">
                     <h3>Software Engineer - IAM</h3>
                     <p><strong>Experience in:</strong> Identity Access Management, Azure, Active Directory, Security Protocols, OAuth, SAML</p>
                     <p><strong>Salary:</strong> Competitive salary with benefits</p>
+                    <button class="apply-button" data-job="Software Engineer - IAM">Apply Now</button>
                 </div>
             </div>
         </div>
-        <a href="#contact" class="cta-button">Apply Now</a>
     </section>
 
     <!-- Contact Section -->
@@ -424,7 +523,38 @@
             <textarea name="message" placeholder="Message" rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
+        <!-- LocalBusiness Schema -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Appxcelerate Technologies",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Texas",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          },
+          "email": "admin@appxcelerate-tech.com",
+          "url": "https://www.appxcelerate-tech.com",
+          "description": "Texas-based provider of IT solutions, software development, and staffing services."
+        }
+        </script>
     </section>
+
+    <!-- Modal for Job Application -->
+    <div id="apply-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Apply for <span id="job-title"></span></h3>
+            <form id="apply-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -458,8 +588,7 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Send email using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', {
                 from_name: contactForm.name.value,
                 from_email: contactForm.email.value,
                 message: contactForm.message.value
@@ -471,6 +600,66 @@
                 alert('Failed to send message. Please try again later.');
                 console.error('EmailJS error:', error);
             });
+        });
+
+        // Job Application Modal
+        const applyButtons = document.querySelectorAll('.apply-button');
+        const modal = document.getElementById('apply-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const jobTitleSpan = document.getElementById('job-title');
+        const applyForm = document.getElementById('apply-form');
+
+        applyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const jobTitle = button.getAttribute('data-job');
+                jobTitleSpan.textContent = jobTitle;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            applyForm.reset();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                applyForm.reset();
+            }
+        });
+
+        applyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const fileInput = applyForm.querySelector('input[type="file"]');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const base64File = event.target.result.split(',')[1]; // Extract base64 data
+
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_APPLY_TEMPLATE_ID', {
+                        from_name: applyForm.name.value,
+                        from_email: applyForm.email.value,
+                        job_title: jobTitleSpan.textContent,
+                        resume: base64File,
+                        resume_name: file.name
+                    })
+                    .then(() => {
+                        alert('Application submitted successfully! We will review your resume.');
+                        applyForm.reset();
+                        modal.style.display = 'none';
+                    }, (error) => {
+                        alert('Failed to submit application. Please try again later.');
+                        console.error('EmailJS error:', error);
+                    });
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please attach a resume.');
+            }
         });
 
         // Smooth Scroll for Anchor Links
