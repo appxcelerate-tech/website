@@ -1,159 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appxcelerate Technologies</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 10px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header img {
-      height: 60px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('assets/banner.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 140px 20px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    section {
-      padding: 60px 30px;
-    }
-    #about, #careers {
-      background-color: #f9f9f9;
-    }
-    h2 {
-      text-align: center;
-      color: #003366;
-      margin-bottom: 30px;
-    }
-    ul {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0;
-      list-style-type: disc;
-    }
-    ul li {
-      padding: 8px 0;
-      font-size: 1.1rem;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #003366;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    footer p {
-      margin: 5px 0;
-      font-size: 0.95rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appxcelerate Technologies - Innovative IT Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #003087;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #00b4d8;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: #00b4d8;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .cta-button:hover {
+            background: #0077b6;
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #003087;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #003087;
+        }
+
+        /* About Section */
+        .about {
+            background: #f4f4f4;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #003087;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Careers Section */
+        .careers {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .careers h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #003087;
+        }
+
+        .careers p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #003087;
+            color: #fff;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            background: #00b4d8;
+            color: #fff;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .contact button:hover {
+            background: #0077b6;
+        }
+
+        /* Footer */
+        footer {
+            background: #002060;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background: #003087;
+                width: 100%;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="Appxcelerate Logo" />
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Appxcelerate Technologies Logo">
+                Appxcelerate Technologies
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
 
-  <section id="home" class="hero">
-    <h2>Empowering Digital Innovation</h2>
-    <p>Appxcelerate Technologies delivers modern IT consulting and software solutions that fuel your business growth.</p>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Accelerate Your Business with Appxcelerate Technologies</h1>
+            <p>Delivering innovative IT solutions and staffing services to drive growth and success worldwide.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p style="max-width: 900px; margin: auto; text-align: center; font-size: 1.1rem;">Appxcelerate Technologies is a premier software consulting and development firm delivering high-value technology solutions tailored to your enterprise needs. We specialize in scalable systems, cloud modernization, and application development to help businesses thrive in the digital age.</p>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <h3>Software Development</h3>
+                <p>Custom software solutions tailored to your business needs, built with cutting-edge technologies like Java, Python, and React.</p>
+            </div>
+            <div class="service-item">
+                <h3>IT Consulting</h3>
+                <p>Strategic guidance to optimize your IT infrastructure and drive digital transformation.</p>
+            </div>
+            <div class="service-item">
+                <h3>Staffing Services</h3>
+                <p>Connecting top-tier talent with leading companies to build high-performing teams.</p>
+            </div>
+            <div class="service-item">
+                <h3>Mobile App Development</h3>
+                <p>Innovative iOS and Android applications to enhance user engagement and business growth.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Custom Software & Application Development</li>
-      <li>Cloud Strategy, Architecture & Migration</li>
-      <li>Enterprise Application Integration</li>
-      <li>DevOps, CI/CD Automation</li>
-      <li>Mobile App Development (iOS & Android)</li>
-      <li>Data Warehousing & Business Intelligence</li>
-    </ul>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Appxcelerate Technologies</h2>
+        <p>Appxcelerate Technologies is a global leader in providing end-to-end IT solutions, including software development, IT consulting, and staffing services. Based in New Jersey, we serve mid-market enterprises and Fortune 1000 companies, delivering innovative solutions that drive business transformation. Our mission is to empower businesses with technology that enhances efficiency, productivity, and profitability, backed by our commitment to excellence and client satisfaction.</p>
+    </section>
 
-  <section id="careers">
-    <h2>Careers</h2>
-    <p style="max-width: 900px; margin: auto; text-align: center; font-size: 1.1rem;">Looking to grow your career in tech? Join our team of innovative professionals committed to building transformative digital experiences. Email your resume to <a href="mailto:careers@appxcelerate-tech.com">careers@appxcelerate-tech.com</a>.</p>
-  </section>
+    <!-- Careers Section -->
+    <section id="careers" class="careers">
+        <h2>Join Our Team</h2>
+        <p>At Appxcelerate Technologies, we believe in fostering a culture of innovation and collaboration. We’re always looking for talented individuals to join our team. Send your resume to <a href="mailto:admin@appxcelerate.com">admin@appxcelerate.com</a> to explore exciting opportunities.</p>
+        <a href="#contact" class="cta-button">Apply Now</a>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formsubmit.co/your-email@example.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Appxcelerate Technologies. All rights reserved.</p>
-    <p>Unauthorized use or duplication of this content without express written permission is strictly prohibited.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Appxcelerate Technologies. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+
+        // Responsive Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                from_name: contactForm.name.value,
+                from_email: contactForm.email.value,
+                message: contactForm.message.value
+            })
+            .then(() => {
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            }, (error) => {
+                alert('Failed to send message. Please try again later.');
+                console.error('EmailJS error:', error);
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
