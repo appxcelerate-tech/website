@@ -8,65 +8,83 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
     }
     header {
-      background-color: #003366;
-      color: white;
-      padding: 15px 0;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     header img {
-      height: 50px;
-      margin-right: 10px;
+      height: 60px;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 25px;
     }
-    nav a {
-      color: white;
+    nav ul li a {
       text-decoration: none;
+      color: #333;
       font-weight: bold;
     }
     .hero {
-      background-image: url('assets/banner.jpg');
-      background-size: cover;
-      background-position: center;
+      background: url('assets/banner.jpg') no-repeat center center/cover;
       color: white;
+      padding: 140px 20px;
       text-align: center;
-      padding: 100px 20px;
     }
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
     section {
-      padding: 60px 20px;
-      background-color: white;
+      padding: 60px 30px;
     }
-    #services, #contact {
-      background-color: #e6f2ff;
+    #about, #careers {
+      background-color: #f9f9f9;
     }
     h2 {
       text-align: center;
       color: #003366;
       margin-bottom: 30px;
     }
-    form input, form textarea {
+    ul {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: disc;
+    }
+    ul li {
+      padding: 8px 0;
+      font-size: 1.1rem;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    input, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    form button {
+    button {
       background-color: #003366;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
       border-radius: 4px;
       cursor: pointer;
     }
@@ -74,83 +92,68 @@
       background-color: #003366;
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 30px 20px;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px;">
-      <div style="display: flex; align-items: center;">
-        <img src="assets/logo.png" alt="Appxcelerate Logo" />
-        <h1>Appxcelerate Technologies</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+    <img src="assets/logo.png" alt="Appxcelerate Logo" />
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section id="home" class="hero">
-    <div class="container">
-      <h2>Empowering Digital Innovation</h2>
-      <p>We deliver reliable, scalable, and efficient IT solutions that transform your business.</p>
-    </div>
+    <h2>Empowering Digital Innovation</h2>
+    <p>Appxcelerate Technologies delivers modern IT consulting and software solutions that fuel your business growth.</p>
   </section>
 
   <section id="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>Appxcelerate Technologies is a trusted software consulting and development company committed to delivering top-notch technology solutions. With deep industry expertise and a customer-first approach, we help enterprises accelerate their digital journey.</p>
-    </div>
+    <h2>About Us</h2>
+    <p style="max-width: 900px; margin: auto; text-align: center; font-size: 1.1rem;">Appxcelerate Technologies is a premier software consulting and development firm delivering high-value technology solutions tailored to your enterprise needs. We specialize in scalable systems, cloud modernization, and application development to help businesses thrive in the digital age.</p>
   </section>
 
   <section id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Custom Software Development</li>
-        <li>Cloud Solutions & Migration</li>
-        <li>Enterprise Application Integration</li>
-        <li>Mobile & Web App Development</li>
-        <li>DevOps & CI/CD Implementation</li>
-        <li>Data Analytics & Business Intelligence</li>
-      </ul>
-    </div>
+    <h2>Our Services</h2>
+    <ul>
+      <li>Custom Software & Application Development</li>
+      <li>Cloud Strategy, Architecture & Migration</li>
+      <li>Enterprise Application Integration</li>
+      <li>DevOps, CI/CD Automation</li>
+      <li>Mobile App Development (iOS & Android)</li>
+      <li>Data Warehousing & Business Intelligence</li>
+    </ul>
   </section>
 
   <section id="careers">
-    <div class="container">
-      <h2>Careers</h2>
-      <p>Join our passionate team of professionals! We’re looking for talented individuals who are ready to create innovative solutions and drive transformation. Email your resume to careers@appxcelerate-tech.com.</p>
-    </div>
+    <h2>Careers</h2>
+    <p style="max-width: 900px; margin: auto; text-align: center; font-size: 1.1rem;">Looking to grow your career in tech? Join our team of innovative professionals committed to building transformative digital experiences. Email your resume to <a href="mailto:careers@appxcelerate-tech.com">careers@appxcelerate-tech.com</a>.</p>
   </section>
 
   <section id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <form action="https://formsubmit.co/your-email@example.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+    <h2>Contact Us</h2>
+    <form action="https://formsubmit.co/your-email@example.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Appxcelerate Technologies. All rights reserved.</p>
-      <p style="font-size: 0.9em;">
-        Unauthorized use or duplication of this content without express written permission is strictly prohibited.
-      </p>
-    </div>
+    <p>&copy; 2025 Appxcelerate Technologies. All rights reserved.</p>
+    <p>Unauthorized use or duplication of this content without express written permission is strictly prohibited.</p>
   </footer>
 </body>
 </html>
