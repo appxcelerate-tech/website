@@ -53,13 +53,13 @@
         .logo {
             display: flex;
             align-items: center;
-            font-size: 2rem; /* Increased font size for better proportion with larger icon */
+            font-size: 2rem;
             font-weight: 700;
         }
 
         .logo img {
-            height: 60px; /* Increased icon size from 40px to 60px */
-            margin-right: 15px; /* Adjusted margin for better spacing */
+            height: 60px;
+            margin-right: 15px;
         }
 
         .nav-links {
@@ -517,10 +517,14 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form id="contact-form">
+        <form id="contact-form" action="https://formsubmit.co/admin@appxcelerate-tech.com" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
+            <input type="hidden" name="_next" value="https://www.appxcelerate-tech.com/#contact">
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting Appxcelerate Technologies! We will get back to you soon.">
+            <input type="hidden" name="_captcha" value="true">
             <button type="submit">Send Message</button>
         </form>
         <!-- LocalBusiness Schema -->
@@ -547,10 +551,15 @@
         <div class="modal-content">
             <span class="close-modal">×</span>
             <h3>Apply for <span id="job-title"></span></h3>
-            <form id="apply-form">
+            <form id="apply-form" action="https://formsubmit.co/admin@appxcelerate-tech.com" method="POST" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="job_title" id="job-title-input" readonly>
                 <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                <input type="hidden" name="_subject" value="New Job Application">
+                <input type="hidden" name="_next" value="https://www.appxcelerate-tech.com/#careers">
+                <input type="hidden" name="_autoresponse" value="Thank you for applying to Appxcelerate Technologies! We will review your application soon.">
+                <input type="hidden" name="_captcha" value="true">
                 <button type="submit">Submit Application</button>
             </form>
         </div>
@@ -562,11 +571,7 @@
         <div class="location">Texas, USA</div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS with your public key
-        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
-
         // Responsive Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -588,17 +593,24 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', {
-                from_name: contactForm.name.value,
-                from_email: contactForm.email.value,
-                message: contactForm.message.value
+            const formData = new FormData(contactForm);
+
+            fetch('https://formsubmit.co/ajax/admin@appxcelerate-tech.com', {
+                method: 'POST',
+                body: formData,
             })
-            .then(() => {
-                alert('Thank you for your message! We will get back to you soon.');
-                contactForm.reset();
-            }, (error) => {
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    alert('Failed to send message. Please try again later.');
+                }
+            })
+            .catch(error => {
                 alert('Failed to send message. Please try again later.');
-                console.error('EmailJS error:', error);
+                console.error('FormSubmit error:', error);
             });
         });
 
@@ -608,11 +620,13 @@
         const closeModal = document.querySelector('.close-modal');
         const jobTitleSpan = document.getElementById('job-title');
         const applyForm = document.getElementById('apply-form');
+        const jobTitleInput = document.getElementById('job-title-input');
 
         applyButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const jobTitle = button.getAttribute('data-job');
                 jobTitleSpan.textContent = jobTitle;
+                jobTitleInput.value = jobTitle;
                 modal.style.display = 'flex';
             });
         });
@@ -635,31 +649,31 @@
             const fileInput = applyForm.querySelector('input[type="file"]');
             const file = fileInput.files[0];
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const base64File = event.target.result.split(',')[1]; // Extract base64 data
-
-                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_APPLY_TEMPLATE_ID', {
-                        from_name: applyForm.name.value,
-                        from_email: applyForm.email.value,
-                        job_title: jobTitleSpan.textContent,
-                        resume: base64File,
-                        resume_name: file.name
-                    })
-                    .then(() => {
-                        alert('Application submitted successfully! We will review your resume.');
-                        applyForm.reset();
-                        modal.style.display = 'none';
-                    }, (error) => {
-                        alert('Failed to submit application. Please try again later.');
-                        console.error('EmailJS error:', error);
-                    });
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert('Please attach a resume.');
+            if (file && file.size > 5 * 1024 * 1024) {
+                alert('File size exceeds 5MB limit. Please upload a smaller file.');
+                return;
             }
+
+            const formData = new FormData(applyForm);
+
+            fetch('https://formsubmit.co/ajax/admin@appxcelerate-tech.com', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Application submitted successfully! We will review your resume.');
+                    applyForm.reset();
+                    modal.style.display = 'none';
+                } else {
+                    alert('Failed to submit application. Please try again later.');
+                }
+            })
+            .catch(error => {
+                alert('Failed to submit application. Please try again later.');
+                console.error('FormSubmit error:', error);
+            });
         });
 
         // Smooth Scroll for Anchor Links
