@@ -183,6 +183,52 @@
             margin-bottom: 2rem;
         }
 
+        .dropdown {
+            margin: 2rem 0;
+        }
+
+        .dropdown-toggle {
+            background: #00b4d8;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle:hover {
+            background: #0077b6;
+        }
+
+        .dropdown-content {
+            display: none;
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .dropdown-content.active {
+            display: block;
+        }
+
+        .job-listing {
+            margin-bottom: 2rem;
+        }
+
+        .job-listing h3 {
+            font-size: 1.5rem;
+            color: #003087;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-listing p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
         /* Contact Section */
         .contact {
             background: #003087;
@@ -232,6 +278,14 @@
             color: #fff;
             text-align: center;
             padding: 1rem 0;
+            position: relative;
+        }
+
+        .location {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
@@ -265,6 +319,11 @@
 
             .hero-content p {
                 font-size: 1rem;
+            }
+
+            .location {
+                position: static;
+                margin-top: 1rem;
             }
         }
     </style>
@@ -317,11 +376,11 @@
                 <h3>Mobile App Development</h3>
                 <p>Innovative iOS and Android applications to enhance user engagement and business growth.</p>
             </div>
-              <div class="service-item">
+            <div class="service-item">
                 <h3>Chatbot Development</h3>
                 <p>Building customized AI chatbots for customer support, sales automation, and interactive user experiences.</p>
             </div>
-              <div class="service-item">
+            <div class="service-item">
                 <h3>AI & Language Model Solutions</h3>
                 <p>Empowering Your Business with Intelligent Automation and Advanced AI-Driven Insights.</p>
             </div>
@@ -338,6 +397,21 @@
     <section id="careers" class="careers">
         <h2>Join Our Team</h2>
         <p>At Appxcelerate Technologies, we believe in fostering a culture of innovation and collaboration. We’re always looking for talented individuals to join our team. Send your resume to <a href="mailto:admin@appxcelerate.com">admin@appxcelerate.com</a> to explore exciting opportunities.</p>
+        <div class="dropdown">
+            <button class="dropdown-toggle">View Open Positions</button>
+            <div class="dropdown-content">
+                <div class="job-listing">
+                    <h3>Software Engineer - Mobile</h3>
+                    <p><strong>Experience in Technologies:</strong> Java, Kotlin, Python</p>
+                    <p><strong>Salary:</strong> Competitive salary with benefits</p>
+                </div>
+                <div class="job-listing">
+                    <h3>Software Engineer - IAM</h3>
+                    <p><strong>Experience in:</strong> Identity Access Management, Azure, Active Directory, Security Protocols, OAuth, SAML</p>
+                    <p><strong>Salary:</strong> Competitive salary with benefits</p>
+                </div>
+            </div>
+        </div>
         <a href="#contact" class="cta-button">Apply Now</a>
     </section>
 
@@ -355,6 +429,7 @@
     <!-- Footer -->
     <footer>
         <p>© 2025 Appxcelerate Technologies LLC. All rights reserved.</p>
+        <div class="location">Texas, USA</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -368,6 +443,14 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        // Dropdown Toggle
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownToggle.addEventListener('click', () => {
+            dropdownContent.classList.toggle('active');
         });
 
         // Contact Form Submission
